@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body class="registration">
+  <a href="#" class="registration__button">Регистрация</a>
+  <div class="registration__container visually-hidden">
+    <form class="form" action="post">
+      <h2 class="form__title">Регистрация</h2>
+      <fieldset class="form__fieldset">
+        <label class="form__label" for="e-mail">E-mail</label>
+        <input class="form__input" type="text" id="e-mail" name="e-mail" required>
+      </fieldset>
+      <fieldset class="form__fieldset">
+        <label class="form__label" for="nikname">Никнейм</label>
+        <input class="form__input" type="text" id="nikname" name="nikname" required>
+      </fieldset>
+      <fieldset class="form__fieldset">
+        <label class="form__label" for="password">Пароль</label>
+        <input class="form__input" type="text" id="password" name="password" required>
+        <p class="form__pass-rule-title">Пароль должен содержать:</p>
+        <ul class="form__pass-rule-list">
+          <li class="form__pass-rule-item">Цифры от 6 до 32</li>
+          <li class="form__pass-rule-item">Цифру</li>
+          <li class="form__pass-rule-item">Заглавную и строчную букву</li>
+        </ul>
+        <label class="form__label" for="compare-password">Пароль еще раз</label>
+        <input class="form__input" type="text" id="compare-password"  required>
+      </fieldset>
+      <button type="submit">Отправить</button>
+    </form>
+  </div>
+</body>
+</html>

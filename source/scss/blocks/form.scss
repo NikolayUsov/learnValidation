@@ -1,0 +1,42 @@
+.form {
+  width: 100%;
+  padding: 10px 15px;
+}
+
+.form__fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.form__label {
+  display: block;
+  margin: 0;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.form__input {
+  width: 100%;
+  padding: 8px 10px;
+}
+
+.form__pass-rule-list {
+@include reset-list ();
+}
+
+.form__pass-rule-item {
+ position: relative;
+ padding-left: 15px;
+
+  &::before {
+    @include pseudo(10px,10px);
+    border-radius: 50%;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: 1px solid black;
+  }
+}
