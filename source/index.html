@@ -11,27 +11,34 @@
   <div class="registration__container visually-hidden">
     <form class="form" action="post">
       <h2 class="form__title">Регистрация</h2>
-      <fieldset class="form__fieldset">
-        <label class="form__label" for="e-mail">E-mail</label>
-        <input class="form__input" type="text" id="e-mail" name="e-mail" required>
+      <fieldset class="form__fieldset form__fieldset--text">
+        <label class="form__label" for="email">E-mail</label>
+        <input class="form__input form__input--email" type="text" id="email" name="email" required>
+        <p class="form__error-message form__error-message--email">Неправильный e-mail</p>
       </fieldset>
-      <fieldset class="form__fieldset">
+      <fieldset class="form__fieldset form__fieldset--text">
         <label class="form__label" for="nikname">Никнейм</label>
         <input class="form__input" type="text" id="nikname" name="nikname" required>
+        <p class="form__error-message form__error-message--nikname">Имя должно начинаться с буквы и
+          может содержать только латинские буквы, Цифры или_ Длина от 3 до 40 символов.
+        </p>
       </fieldset>
-      <fieldset class="form__fieldset">
+      <fieldset class="form__fieldset form__fieldset--text">
         <label class="form__label" for="password">Пароль</label>
         <input class="form__input" type="text" id="password" name="password" required>
         <p class="form__pass-rule-title">Пароль должен содержать:</p>
         <ul class="form__pass-rule-list">
-          <li class="form__pass-rule-item">Цифры от 6 до 32</li>
+          <li class="form__pass-rule-item">Символы от 6 до 32</li>
           <li class="form__pass-rule-item">Цифру</li>
           <li class="form__pass-rule-item">Заглавную и строчную букву</li>
         </ul>
+      </fieldset>
+      <fieldset class="form__fieldset">
         <label class="form__label" for="compare-password">Пароль еще раз</label>
         <input class="form__input" type="text" id="compare-password"  required>
+        <p class="form__error-message form__error-message--compare-password">Пароли не совпадают</p>
       </fieldset>
-      <button type="submit">Отправить</button>
+      <button type="submit" class = "form__submit">Отправить</button>
     </form>
   </div>
 </body>

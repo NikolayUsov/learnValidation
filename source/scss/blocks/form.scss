@@ -20,6 +20,12 @@
 .form__input {
   width: 100%;
   padding: 8px 10px;
+  border: 2px solid rgba($color: #000000, $alpha: 0.5);
+}
+
+.invalid .form__input,
+.invalid.form__input{
+  border-color: red
 }
 
 .form__pass-rule-list {
@@ -39,4 +45,16 @@
     background-color: transparent;
     border: 1px solid black;
   }
+}
+
+.form__error-message {
+  color: red;
+  font-size: 14px;
+  margin: 0;
+  opacity: 0;
+}
+
+.invalid .form__error-message ,
+.invalid + .form__error-message {
+  opacity: 1;
 }
