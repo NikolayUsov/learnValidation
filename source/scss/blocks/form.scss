@@ -32,12 +32,6 @@
 @include reset-list ();
 }
 
-.form__pass-rule-list--upperletter .form__pass-rule-item--upperletter:before,
-.form__pass-rule-list--symbol .form__pass-rule-item--symbol:before,
-.form__pass-rule-list--number .form__pass-rule-item--number:before {
-    background-color: green;
-}
-
 .form__pass-rule-item {
  position: relative;
  padding-left: 15px;
@@ -53,6 +47,14 @@
   }
 }
 
+.active::before {
+  background-color: red;
+}
+
+.active.valid::before {
+    background-color: green;
+}
+
 .form__error-message {
   color: red;
   font-size: 14px;
@@ -63,4 +65,21 @@
 .invalid .form__error-message ,
 .invalid + .form__error-message {
   opacity: 1;
+}
+
+.form__button-submit {
+  margin: 0 auto;
+  display: block;
+  width: 150px;
+  height: 50px;
+  background-color: blue;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+
+  &:disabled {
+    background-color: grey;
+    cursor: auto;
+  }
 }

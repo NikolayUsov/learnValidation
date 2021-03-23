@@ -29,17 +29,21 @@
         <p class="form__error-message ">Неправильный формат пароля</p>
         <p class="form__pass-rule-title">Пароль должен содержать:</p>
         <ul class="form__pass-rule-list">
-          <li class="form__pass-rule-item form__pass-rule--symbol">Символы от 6 до 32</li>
-          <li class="form__pass-rule-item form__pass-rule--number">Цифру</li>
-          <li class="form__pass-rule-item form__pass-rule--upperletter">Заглавную и строчную букву</li>
+          <li class="form__pass-rule-item" data-pattern="symbols">Символы от 6 до 32</li>
+          <li class="form__pass-rule-item" data-pattern="number">Цифру</li>
+          <li class="form__pass-rule-item" data-pattern="upperletter">Заглавную и строчную букву</li>
         </ul>
       </fieldset>
       <fieldset class="form__fieldset">
         <label class="form__label" for="compare-password">Пароль еще раз</label>
-        <input class="form__input" type="text" id="compare-password"  required>
+        <input class="form__input form__input-password-compare" type="text" id="compare-password"  required>
         <p class="form__error-message form__error-message--compare-password">Пароли не совпадают</p>
       </fieldset>
-      <button type="submit" class = "form__submit">Отправить</button>
+      <fieldset  class="form__fieldset">
+        <input type="checkbox" class="form__checkbox-privacy" id="privacy" name="privacy">
+        <label class="form__label-checkbox" for="privacy">Политика использования</label>
+      </fieldset>
+      <button type="submit" class = "form__button-submit" disabled>Отправить</button>
     </form>
   </div>
 </body>
