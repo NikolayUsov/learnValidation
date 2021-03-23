@@ -14,23 +14,24 @@
       <fieldset class="form__fieldset form__fieldset--text">
         <label class="form__label" for="email">E-mail</label>
         <input class="form__input form__input--email" type="text" id="email" name="email" required>
-        <p class="form__error-message form__error-message--email">Неправильный e-mail</p>
+        <p class="form__error-message">Неправильный e-mail</p>
       </fieldset>
       <fieldset class="form__fieldset form__fieldset--text">
         <label class="form__label" for="nikname">Никнейм</label>
         <input class="form__input" type="text" id="nikname" name="nikname" required>
-        <p class="form__error-message form__error-message--nikname">Имя должно начинаться с буквы и
+        <p class="form__error-message">Имя должно начинаться с буквы и
           может содержать только латинские буквы, Цифры или_ Длина от 3 до 40 символов.
         </p>
       </fieldset>
       <fieldset class="form__fieldset form__fieldset--text">
         <label class="form__label" for="password">Пароль</label>
-        <input class="form__input" type="text" id="password" name="password" required>
+        <input class="form__input form__input-password" type="text" id="password" name="password" required>
+        <p class="form__error-message ">Неправильный формат пароля</p>
         <p class="form__pass-rule-title">Пароль должен содержать:</p>
         <ul class="form__pass-rule-list">
-          <li class="form__pass-rule-item">Символы от 6 до 32</li>
-          <li class="form__pass-rule-item">Цифру</li>
-          <li class="form__pass-rule-item">Заглавную и строчную букву</li>
+          <li class="form__pass-rule-item form__pass-rule--symbol">Символы от 6 до 32</li>
+          <li class="form__pass-rule-item form__pass-rule--number">Цифру</li>
+          <li class="form__pass-rule-item form__pass-rule--upperletter">Заглавную и строчную букву</li>
         </ul>
       </fieldset>
       <fieldset class="form__fieldset">

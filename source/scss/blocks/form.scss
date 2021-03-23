@@ -32,6 +32,12 @@
 @include reset-list ();
 }
 
+.form__pass-rule-list--upperletter .form__pass-rule-item--upperletter:before,
+.form__pass-rule-list--symbol .form__pass-rule-item--symbol:before,
+.form__pass-rule-list--number .form__pass-rule-item--number:before {
+    background-color: green;
+}
+
 .form__pass-rule-item {
  position: relative;
  padding-left: 15px;
