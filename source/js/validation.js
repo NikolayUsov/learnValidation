@@ -11,7 +11,7 @@ const privacyCheckbox = document.querySelector('.form__checkbox-privacy');
 const formFieldsets = form.querySelectorAll('fieldset');
 
 const RegxpPatterns = {
-  EMAIL: /^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$/i,
+  EMAIL: /^([A-Za-z0-9_\-.])+@([A-Za-z0-9_\-.])+\.([A-Za-z]{2,4})$/,
   NIKNAME: /^[a-z0-9_]{3,32}$/,
   PASSWORD: /^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{6,32}$/,
 }
@@ -93,7 +93,7 @@ const validateTextFieldset = () => {
         setInvalid(fieldset);
         addDisabledClass(fieldset)
         input.addEventListener('input', inputWrite);
-        return
+
       } else {
         setValid(fieldset)
         removeDisabledClass(fieldset)
@@ -128,8 +128,6 @@ const onPasswordInput = (evt) => {
           }
         }
       }
-
-
     }
   }
   else {
@@ -171,11 +169,10 @@ const onPrivacyCheckboxChange = (evt) => {
 const onFormSubmit = (evt) => {
   evt.preventDefault();
   const formData = new FormData(form);
+
   for (let key of formData.keys()) {
     console.log(`${key}: ${formData.get(key)}`);
   }
-
-  console.log(formData);
   form.reset();
   disabledSubbmitButton();
   unDisabledSubmitButton();
