@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const registrationBtn =  document.querySelector('.registration__button');
 const rigistrationContainer = document.querySelector('.registration__container');
 const formTextFieldsets = document.querySelectorAll('.form__fieldset--text');
@@ -32,12 +33,14 @@ const onRegistrationBtnClick = (evt) => {
   rigistrationContainer.classList.remove('visually-hidden')
 }
 
+const disabledSubbmitButton = () => {
+  formFieldsets.forEach(elem => elem.classList.add('form__submit--disabled'))
+}
+
 const unDisabledSubmitButton = () => {
   const fieldsets = Array.from(formFieldsets);
 
-  const isValid = fieldsets.some((elem) => elem.classList.contains('invalid'));
-  // eslint-disable-next-line no-console
-  console.log(isValid)
+  const isValid = fieldsets.some((elem) => elem.classList.contains('form__submit--disabled'));
   if (isValid) {
     buttonSubmit.disabled = true;
   } else {
@@ -51,6 +54,14 @@ const setInvalid = (elem) => {
 
 const setValid = (elem) => {
   elem.classList.remove('invalid');
+}
+
+const addDisabledClass = (elem) => {
+  elem.classList.add('form__submit--disabled');
+}
+
+const removeDisabledClass = (elem) => {
+  elem.classList.remove('form__submit--disabled');
 }
 
 const checkPattern = (input) => {
@@ -80,13 +91,16 @@ const validateTextFieldset = () => {
 
       if (!checkPattern(input)) {
         setInvalid(fieldset);
+        addDisabledClass(fieldset)
         input.addEventListener('input', inputWrite);
         return
       } else {
         setValid(fieldset)
+        removeDisabledClass(fieldset)
       }
     } else {
       setValid(fieldset);
+      addDisabledClass(fieldset)
       input.removeEventListener('input', inputWrite)
     }
 
@@ -129,26 +143,48 @@ const onPasswordInput = (evt) => {
 const onPasswordCompareChange = (evt) => {
   if (evt.target.value !== inputPassword.value) {
     setInvalid(evt.target.closest('.form__fieldset'))
+    addDisabledClass(evt.target.closest('.form__fieldset'))
   } else {
-    setValid(evt.target.closest('.form__fieldset'))
+    setValid(evt.target.closest('.form__fieldset'));
+    removeDisabledClass(evt.target.closest('.form__fieldset'));
   }
 }
 
 const onFormChange = () => {
-  // eslint-disable-next-line no-console
-  console.log('чендж')
-  validateTextFieldset()
-  unDisabledSubmitButton()
+  validateTextFieldset();
+  unDisabledSubmitButton();
+  unDisabledSubmitButton();
+
 }
 
 const onPrivacyCheckboxChange = (evt) => {
-  evt.target.checked ?
-    setValid(evt.target.closest('.form__fieldset')) :
-    setInvalid(evt.target.closest('.form__fieldset'))
+  if (evt.target.checked) {
+    setValid(evt.target.closest('.form__fieldset'));
+    removeDisabledClass(evt.target.closest('.form__fieldset'));
+  }
+  else {
+    setInvalid(evt.target.closest('.form__fieldset'));
+    addDisabledClass(evt.target.closest('.form__fieldset'));
+  }
 }
 
+const onFormSubmit = (evt) => {
+  evt.preventDefault();
+  const formData = new FormData(form);
+  for (let key of formData.keys()) {
+    console.log(`${key}: ${formData.get(key)}`);
+  }
+
+  console.log(formData);
+  form.reset();
+  disabledSubbmitButton();
+  unDisabledSubmitButton();
+}
+
+disabledSubbmitButton();
 privacyCheckbox.addEventListener('change', onPrivacyCheckboxChange)
 inputPassword.addEventListener('input', onPasswordInput)
 form.addEventListener('change', onFormChange);
+form.addEventListener('submit', onFormSubmit);
 registrationBtn.addEventListener('click', onRegistrationBtnClick);
 passwordCompareInput.addEventListener('change', onPasswordCompareChange)
