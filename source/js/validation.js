@@ -12,7 +12,7 @@ const formFieldsets = form.querySelectorAll('fieldset');
 
 const RegxpPatterns = {
   EMAIL: /^([A-Za-z0-9_\-.])+@([A-Za-z0-9_\-.])+\.([A-Za-z]{2,4})$/,
-  NIKNAME: /^[a-z0-9_]{3,32}$/,
+  NIKNAME: /^[a-zA-Z0-9_]{3,32}$/,
   PASSWORD: /^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{6,32}$/,
 }
 
